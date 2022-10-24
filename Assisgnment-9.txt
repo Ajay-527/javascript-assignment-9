@@ -1,0 +1,48 @@
+function OuterFunction() {
+  var outerVariable = 100;
+  function InnerFunction() {
+    alert(outerVariable); 
+  }
+  return InnerFunction;
+}
+var innerFunc = OuterFunction();
+innerFunc();
+
+1. Carefully observe this example.
+a) Is the InnerFunction() a closure?
+b) What is output of this program
+
+A) Answer The InnerFunction() is closure becaues outerVariable accesing in the innerFunction
+B) Answer 100
+
+2. What is the difference between a closure and a scope ?
+
+    closure                      v/s                  scope
+
+   a. Accesing the outer function          a.Depend upon the Type of (const,var,let)
+   variable in the inner function           const:Can't acces outside method And Can't modifiy
+                                            Var  : Acceses outside the method
+										    let  : Can't acces outside method
+										 
+										 
+3. What is a lexical scope and how is it related to closure?
+
+   lexical scope:is that accesing the variables from outerscope
+   closure:is that accesing the lexical scope
+   
+4. Output of following closure ?
+	for (var i = 0; i < 3; i++) {
+	setTimeout(function log() {
+	console.log(i); // What is logged?
+	}, 1000);
+	}
+	
+	Output
+			3
+			3
+			3
+			
+			Bascialy we are calling async method,usally asynchourn method goes to queue(event loop,check the call stack until empyt)
+			then queue will execute,When the method in queue the 'i' will become 3,from the current value we are excuting.
+	
+	
